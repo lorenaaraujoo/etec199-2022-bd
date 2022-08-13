@@ -1,13 +1,13 @@
 USE bdTransito
 
--- 1) Criar 3 procedures para inserir 2 motoristas, 3 veÌculos e 5 multa. 
+-- 1) Criar 3 procedures para inserir 2 motoristas, 3 ve√≠culos e 5 multa. 
 
 CREATE PROCEDURE spInserirMotorista
 	@nomeMotorista VARCHAR(90),@dataNascMotorista SMALLDATETIME, @cpfMotorista VARCHAR(14), @cnhMotorista INT, @pontuacaoAcumulada INT
 AS
 	IF EXISTS(SELECT cpfMotorista FROM tbMotorista WHERE cpfMotorista = @cpfMotorista)
 	BEGIN
-		PRINT('Motorista j· est· cadastrado no sistema!')
+		PRINT('Motorista j√° est√° cadastrado no sistema!')
 	END
 	ELSE
 	BEGIN
@@ -24,13 +24,13 @@ CREATE PROCEDURE spInserirVeiculo
 AS
 	IF EXISTS(SELECT renavam FROM tbVeiculo WHERE renavam = @renavam)
 	BEGIN
-		PRINT('VeÌculo j· est· cadastrado no sistema!')
+		PRINT('Ve√≠culo j√° est√° cadastrado no sistema!')
 	END
 	ELSE
 	BEGIN
 		INSERT tbVeiculo(modeloVeiculo, placa, renavam, anoVeiculo, codMotorista)
 		VALUES (@modeloVeiculo, @placa, @renavam, @anoVeiculo, @codMotorista)
-		PRINT ('VeÌculo '+@modeloVeiculo+' cadastrado com sucesso!')
+		PRINT ('Ve√≠culo '+@modeloVeiculo+' cadastrado com sucesso!')
 	END
 
 	EXEC spInserirVeiculo 'BMW M5', 'UAI0W47', 00000000001, 2022, 1  
@@ -42,7 +42,7 @@ CREATE PROCEDURE spInserirMulta
 AS
 	IF EXISTS(SELECT dataMulta FROM tbMultas WHERE dataMulta = GETDATE())
 	BEGIN
-		PRINT('Multa j· existente no sistema!')
+		PRINT('Multa j√° existente no sistema!')
 	END
 	ELSE
 	BEGIN
@@ -57,8 +57,8 @@ AS
 	EXEC spInserirMulta 3, 3
 	EXEC spInserirMulta 2, 3
 
-	-- 2) Criar uma stored procedure que ao ser colocada a placa do veÌculo apresente-se a quantidade demultas do veÌculo.
-	DROP PROCEDURE spVerificarCarro
+	-- 2) Criar uma stored procedure que ao ser colocada a placa do ve√≠culo apresente-se a quantidade demultas do ve√≠culo.
+	
 CREATE PROCEDURE spVerificarCarro
 	@placa VARCHAR(10)
 AS
@@ -70,21 +70,21 @@ AS
 	END
 	ELSE
 	BEGIN
-		PRINT('Veiculo n„o encontrado no sistema!')
+		PRINT('Veiculo n√£o encontrado no sistema!')
 	END
 
 	EXEC spVerificarCarro 'UAI0W47'
 	EXEC spVerificarCarro 'BRA8Z13'
 	EXEC spVerificarCarro 'BRU7L18'
 
-	-- 3) Criar uma procedure que receba o cpf do motorista e apresenta a sua pontuaÁ„o acumulada
+	-- 3) Criar uma procedure que receba o cpf do motorista e apresenta a sua pontua√ß√£o acumulada
 
 CREATE PROCEDURE spExibePontuacao
 	@cpfMotorista VARCHAR(15)
 AS
 	IF NOT EXISTS(SELECT cpfMotorista FROM tbMotorista WHERE cpfMotorista = @cpfMotorista) 
 	BEGIN
-		PRINT('Este motorista n„o existe!')
+		PRINT('Este motorista n√£o existe!')
 	END
 	ELSE 
 	BEGIN
