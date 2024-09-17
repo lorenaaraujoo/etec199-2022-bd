@@ -1,8 +1,13 @@
-<h1 align=center>ETEC199-2022-BD</h1>
+<h1 align=center>BANCO DE DADOS</h1>
 
+<p align="center">
+  <img src="etec.png" width="500">
+</p>
+
+#
 ### SOBRE
 
-- Diretório contendo desenvolvimento dos scripts na disciplina Banco de Dados(BD) na Etec Cidade Tiradentes no periodo de 2021 á 2022.
+- Diretório contendo desenvolvimento dos scripts na disciplina Banco de Dados na Etec Cidade Tiradentes em 2022.
 
 #
 ### CONTEUDO ABORDADO
@@ -23,5 +28,5 @@
 - FUNCTION;
 
 #
-### TECNOLOGIA
+###  TECNOLOGIA
 ![MICROSOFT_SQL SERVER](https://img.shields.io/badge/sql_server-0D1117?style=for-the-badge&logo=microsoft-sql-server&labelColor=0D1117)&nbsp;
